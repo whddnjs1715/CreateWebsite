@@ -1,11 +1,13 @@
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      안녕하세요. 쇼핑몰 만들기 프로젝트 입니다.
+      <div className="black-nav">
+        <div>Project</div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
