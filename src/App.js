@@ -1,7 +1,7 @@
 import './App.css';
 
 const App = () => {
-  let posts = '강남 고기 맛집';
+  let posts = '개발 블로그';
   return (
     <div className="App">
       <div className="black-nav">
