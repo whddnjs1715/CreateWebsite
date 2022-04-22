@@ -9,7 +9,7 @@ const App = () => {
       </div>
       <div className="list">
         <h3>{posts}</h3>
-        <p>2022년 4월 20일 발행</p>
+        <p>2022년 4월 22일 발행</p>
         <hr />
       </div>
     </div>
