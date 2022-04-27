@@ -42,7 +42,7 @@ const App = () => {
           <button onClick={beGood}>좋아요</button>
           <span>{good}</span>
         </h4>
-        <p>4월 26일</p>
+        <p>4월 27일</p>
         <hr />
       </div>
     </div>
