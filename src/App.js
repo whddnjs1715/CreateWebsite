@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="black-nav">
-        <div>개발 blog</div>
+        <div>React blog</div>
       </div>
       <button onClick={sortArray}>가나다순정렬</button>
       <button onClick={nameChange}>제목 변경</button>
@@ -32,19 +32,36 @@ const App = () => {
           <button onClick={beGood}>좋아요</button>
           <span>{good}</span>
         </h4>
+        <p>5월 1일 발행</p>
+      </div>
+      <div className="list">
         <h4>
           {name[1]}
           <button onClick={beGood}>좋아요</button>
           <span>{good}</span>
         </h4>
+        <p>5월 1일 발행</p>
+      </div>
+      <div className="list">
         <h4>
           {name[2]}
           <button onClick={beGood}>좋아요</button>
           <span>{good}</span>
         </h4>
-        <p>4월 27일</p>
-        <hr />
+        <p>5월 1일 발행</p>
       </div>
+      <hr />
+      <Modal />
+    </div>
+  );
+};
+
+const Modal = () => {
+  return (
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
     </div>
   );
 };
