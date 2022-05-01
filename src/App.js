@@ -19,6 +19,17 @@ const App = () => {
     arr.sort();
     setName(arr);
   };
+  const [modal, setModal] = useState(false);
+
+  const Modal = () => {
+    return (
+      <div className="modal">
+        <h4>제목</h4>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+    );
+  };
   return (
     <div className="App">
       <div className="black-nav">
@@ -45,23 +56,19 @@ const App = () => {
       <div className="list">
         <h4>
           {name[2]}
-          <button onClick={beGood}>좋아요</button>
+          <button
+            onClick={() => {
+              modal === true ? setModal(false) : setModal(true);
+            }}
+          >
+            좋아요
+          </button>
           <span>{good}</span>
         </h4>
         <p>5월 1일 발행</p>
       </div>
       <hr />
-      <Modal />
-    </div>
-  );
-};
-
-const Modal = () => {
-  return (
-    <div className="modal">
-      <h4>제목</h4>
-      <p>날짜</p>
-      <p>상세내용</p>
+      {modal === true ? <Modal /> : null}
     </div>
   );
 };
