@@ -37,36 +37,28 @@ const App = () => {
       </div>
       <button onClick={sortArray}>가나다순정렬</button>
       <button onClick={nameChange}>제목 변경</button>
-      <div className="list">
-        <h4>
-          {name[0]}
-          <button onClick={beGood}>좋아요</button>
-          <span>{good}</span>
-        </h4>
-        <p>5월 1일 발행</p>
-      </div>
-      <div className="list">
-        <h4>
-          {name[1]}
-          <button onClick={beGood}>좋아요</button>
-          <span>{good}</span>
-        </h4>
-        <p>5월 1일 발행</p>
-      </div>
-      <div className="list">
-        <h4>
-          {name[2]}
-          <button
-            onClick={() => {
-              modal === true ? setModal(false) : setModal(true);
-            }}
-          >
-            좋아요
-          </button>
-          <span>{good}</span>
-        </h4>
-        <p>5월 1일 발행</p>
-      </div>
+      {name.map(function (a, i) {
+        return (
+          <div className="list">
+            <h4>
+              {name[i]}
+              {a == 2 ? (
+                <button
+                  onClick={() => {
+                    modal === true ? setModal(false) : setModal(true);
+                  }}
+                >
+                  좋아요
+                </button>
+              ) : (
+                <button onClick={beGood}>좋아요</button>
+              )}
+              <span>{good}</span>
+            </h4>
+            <p>5월 1일 발행</p>
+          </div>
+        );
+      })}
       <hr />
       {modal === true ? <Modal /> : null}
     </div>
