@@ -40,22 +40,18 @@ const App = () => {
       {name.map(function (a, i) {
         return (
           <div className="list">
-            <h4>
-              {name[i]}
-              {a == 2 ? (
-                <button
-                  onClick={() => {
-                    modal === true ? setModal(false) : setModal(true);
-                  }}
-                >
-                  좋아요
-                </button>
-              ) : (
-                <button onClick={beGood}>좋아요</button>
-              )}
+            <div>
+              <div
+                onClick={() => {
+                  modal === true ? setModal(false) : setModal(true);
+                }}
+              >
+                {name[i]}
+              </div>
+              <button onClick={beGood}>좋아요</button>
               <span>{good}</span>
-            </h4>
-            <p>5월 1일 발행</p>
+              <p>5월 1일 발행</p>
+            </div>
           </div>
         );
       })}
