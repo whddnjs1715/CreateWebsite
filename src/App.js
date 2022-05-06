@@ -35,7 +35,7 @@ const App = () => {
       <button onClick={nameChange}>제목 변경</button>
       {name.map(function (a, i) {
         return (
-          <div className="list">
+          <div className="list" key={i}>
             <div>
               <div
                 onClick={() => {
