@@ -5,6 +5,7 @@ const App = () => {
   const posts = '개발 블로그';
   const [name, setName] = useState(['파이썬', '자바', '자바스크립트']);
   const [good, setGood] = useState([0, 0, 0]);
+  const [num, setNum] = useState(0);
   const nameChange = () => {
     let copy = [...name];
     name[0] === 'Swift' ? (copy[0] = '파이썬') : (copy[0] = 'Swift');
@@ -17,10 +18,10 @@ const App = () => {
   };
   const [modal, setModal] = useState(false);
 
-  const Modal = () => {
+  const Modal = (props) => {
     return (
       <div className="modal">
-        <h4>제목</h4>
+        <h4>{props.name[props.num]}</h4>
         <p>날짜</p>
         <p>상세내용</p>
       </div>
@@ -40,6 +41,7 @@ const App = () => {
               <div
                 onClick={() => {
                   modal === true ? setModal(false) : setModal(true);
+                  setNum(i);
                 }}
               >
                 {name[i]}
@@ -60,7 +62,7 @@ const App = () => {
         );
       })}
       <hr />
-      {modal === true ? <Modal /> : null}
+      {modal === true ? <Modal name={name} num={num} /> : null}
     </div>
   );
 };
