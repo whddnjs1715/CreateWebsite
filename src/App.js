@@ -20,7 +20,7 @@ const App = () => {
 
   const Modal = (props) => {
     return (
-      <div className="modal">
+      <div className="modal" style={{ background: 'skyblue' }}>
         <h4>{props.name[props.num]}</h4>
         <p>날짜</p>
         <p>상세내용</p>
