@@ -27,6 +27,13 @@ const App = () => {
         <h4>{props.name[props.num]}</h4>
         <p>날짜</p>
         <p>상세내용</p>
+        <button
+          onClick={() => {
+            props.num == 1 ? setNum(2) : setNum(1);
+          }}
+        >
+          색상 변경
+        </button>
       </div>
     );
   };
@@ -65,7 +72,7 @@ const App = () => {
         );
       })}
       <hr />
-      {modal === true ? <Modal name={name} num={num} /> : null}
+      {modal === true ? <Modal name={name} num={num} setNum={setNum} /> : null}
     </div>
   );
 };
