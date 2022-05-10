@@ -72,6 +72,14 @@ const App = () => {
         );
       })}
       <hr />
+      <input
+        onChange={() => {
+          console.log('onChange');
+        }}
+        onMouseOver={() => {
+          console.log('onMouseOver');
+        }}
+      ></input>
       {modal === true ? <Modal name={name} num={num} setNum={setNum} /> : null}
     </div>
   );
