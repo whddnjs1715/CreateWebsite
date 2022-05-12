@@ -6,6 +6,7 @@ const App = () => {
   const [name, setName] = useState(['파이썬', '자바', '자바스크립트']);
   const [good, setGood] = useState([0, 0, 0]);
   const [num, setNum] = useState(0);
+  const [inputValue, setInputValue] = useState('');
   const nameChange = () => {
     let copy = [...name];
     name[0] === 'Swift' ? (copy[0] = '파이썬') : (copy[0] = 'Swift');
@@ -73,8 +74,9 @@ const App = () => {
       })}
       <hr />
       <input
-        onChange={() => {
-          console.log('onChange');
+        onChange={(e) => {
+          setInputValue(e.target.value);
+          console.log(inputValue);
         }}
         onMouseOver={() => {
           console.log('onMouseOver');
