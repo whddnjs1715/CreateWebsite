@@ -17,6 +17,11 @@ const App = () => {
     arr.sort();
     setName(arr);
   };
+  const addName = () => {
+    let copy = [...name];
+    copy.unshift(inputValue);
+    setName(copy);
+  };
   const [modal, setModal] = useState(false);
 
   const Modal = (props) => {
@@ -30,7 +35,10 @@ const App = () => {
         <p>상세내용</p>
         <button
           onClick={() => {
-            props.num == 1 ? setNum(2) : setNum(1);
+            //props.num == 1 ? setNum(2) : setNum(1);
+            document.querySelector('div[class="modal"]').style.background == 'gray'
+              ? (document.querySelector('div[class="modal"]').style.background = 'blue')
+              : (document.querySelector('div[class="modal"]').style.background = 'gray');
           }}
         >
           색상 변경
@@ -81,7 +89,8 @@ const App = () => {
         onMouseOver={() => {
           console.log('onMouseOver');
         }}
-      ></input>
+      />
+      <button onClick={addName}>발행</button>
       {modal === true ? <Modal name={name} num={num} setNum={setNum} /> : null}
     </div>
   );
