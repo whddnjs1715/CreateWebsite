@@ -22,6 +22,7 @@ const App = () => {
     copy.unshift(inputValue);
     setName(copy);
   };
+  const delName = () => {};
   const [modal, setModal] = useState(false);
 
   const Modal = (props) => {
@@ -91,6 +92,7 @@ const App = () => {
         }}
       />
       <button onClick={addName}>발행</button>
+      <button onClick={delName}>삭제</button>
       {modal === true ? <Modal name={name} num={num} setNum={setNum} /> : null}
     </div>
   );
