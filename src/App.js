@@ -22,7 +22,13 @@ const App = () => {
     copy.unshift(inputValue);
     setName(copy);
   };
-  const delName = () => {};
+  const delName = () => {
+    let copy = [];
+    for (var i = 0; i < name.length - 1; i++) {
+      copy[i] = name[i];
+    }
+    setName(copy);
+  };
   const [modal, setModal] = useState(false);
 
   const Modal = (props) => {
