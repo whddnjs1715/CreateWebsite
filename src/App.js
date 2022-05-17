@@ -23,10 +23,14 @@ const App = () => {
     setName(copy);
   };
   const delName = () => {
-    let copy = [];
-    for (var i = 0; i < name.length - 1; i++) {
-      copy[i] = name[i];
-    }
+    // 내가 한 방식
+    //  let copy = [];
+    //  for (var i = 0; i < name.length - 1; i++) {
+    //    copy[i] = name[i];
+    //  }
+    //  setName(copy);
+    let copy = [...name];
+    copy.splice(copy.length - 1, 1);
     setName(copy);
   };
   const [modal, setModal] = useState(false);
