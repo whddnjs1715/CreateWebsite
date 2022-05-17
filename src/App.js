@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
   const posts = '개발 블로그';
@@ -116,5 +116,24 @@ const App = () => {
     </div>
   );
 };
+
+// class를 이용한 React 문법
+class Profile extends React.Component {
+  // class : 변수/함수 보관하는 덩어리.
+  // extends: 오른쪽에 있는 것의 성질을 물려받는다.
+  constructor() {
+    // constructor : class의 변수/초기값 저장할 때 쓰임.
+    super();
+    this.state = { name: '자바' };
+  }
+  render() {
+    return (
+      <div>
+        {/* state를 꺼내쓰려면 this.state.state명으로 사용 */}
+        Profile<h3> {this.state.name}</h3>
+      </div>
+    );
+  }
+}
 
 export default App;
