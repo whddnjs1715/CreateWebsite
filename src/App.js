@@ -87,6 +87,15 @@ const App = () => {
               </button>
               <span>{good[i]}</span>
               <p>5월 1일 발행</p>
+              <button
+                onClick={() => {
+                  let copy = [...name];
+                  copy.splice(i, 1);
+                  setName(copy);
+                }}
+              >
+                삭제{' '}
+              </button>
             </div>
           </div>
         );
