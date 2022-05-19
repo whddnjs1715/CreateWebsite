@@ -126,11 +126,17 @@ class Profile extends React.Component {
     super();
     this.state = { name: '자바' };
   }
+  changeName = () => {
+    this.setState({ name: '코틀린' });
+  };
   render() {
     return (
       <div>
         {/* state를 꺼내쓰려면 this.state.state명으로 사용 */}
-        Profile<h3> {this.state.name}</h3>
+        <h3>
+          Profile <p>{this.state.name}</p>
+          <button onClick={this.changeName}></button>
+        </h3>
       </div>
     );
   }
