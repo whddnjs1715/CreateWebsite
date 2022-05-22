@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  letter-spacing: -0.8px;
 }
 
 body {
@@ -28,4 +29,8 @@ body {
   padding: 20px;
   background: #eee;
   text-align: left;
+}
+
+.main-bg {
+  height: 300px;
 }
