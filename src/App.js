@@ -1,6 +1,6 @@
 import './App.css';
 import { Button, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
-import bg from './img/bg.png';
+import data from './data';
 
 function App() {
   return (
