@@ -33,4 +33,7 @@ body {
 
 .main-bg {
   height: 300px;
+  background-image: url('./img/bg.png');
+  background-size: cover;
+  background-position: center;
 }
