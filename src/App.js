@@ -5,8 +5,7 @@ import data from './data';
 
 function App() {
   const [shoes] = useState(data);
-  const Table = () => {
-    const [shoes] = useState(data);
+  const Table = (props) => {
     return (
       <>
         {shoes.map(function (a, i) {
@@ -16,8 +15,8 @@ function App() {
                 src={'https://codingapple1.github.io/shop/shoes' + (i + 1) + '.jpg'}
                 width="80%"
               ></img>
-              <h4>{shoes[i].title}</h4>
-              <p>{shoes[i].content}</p>
+              <h4>{props.shoes[i].title}</h4>
+              <p>{props.shoes[i].content}</p>
             </div>
           );
         })}
@@ -38,7 +37,7 @@ function App() {
       <div className="main-bg"></div>
       <div className="container">
         <div className="row">
-          <Table />
+          <Table shoes={shoes} />
         </div>
       </div>
     </div>
