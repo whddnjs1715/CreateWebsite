@@ -2,9 +2,11 @@ import './App.css';
 import { useState } from 'react';
 import { Button, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import data from './data';
+import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   const [shoes] = useState(data);
+
   const Table = (props) => {
     return (
       <>
@@ -34,12 +36,22 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-      <div className="main-bg"></div>
-      <div className="container">
-        <div className="row">
-          <Table shoes={shoes} />
-        </div>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="main-bg"></div>
+              <div className="container">
+                <div className="row">
+                  <Table shoes={shoes} />
+                </div>
+              </div>
+            </>
+          }
+        />
+        <Route path="/detail" element={<div>상세페이지</div>} />
+      </Routes>
     </div>
   );
 }
