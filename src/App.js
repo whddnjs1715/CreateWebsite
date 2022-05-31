@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import data from './data';
 import { Routes, Route, Link } from 'react-router-dom';
+import Detail from './Detail';
 
 function App() {
   const [shoes] = useState(data);
@@ -52,7 +53,7 @@ function App() {
             </>
           }
         />
-        <Route path="/detail" element={<div>상세페이지</div>} />
+        <Route path="/detail" element={<Detail />} />
       </Routes>
     </div>
   );
