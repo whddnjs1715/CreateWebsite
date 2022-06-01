@@ -67,9 +67,25 @@ function App() {
           }
         />
         <Route path="/detail" element={<Detail />} />
+        <Route path="/about" element={<About />}>
+          <Route path="member" element={<div>member 페이지</div>} />
+          <Route path="location" element={<div>location 페이지</div>} />
+        </Route>
+        <Route path="*" element={<div>없는 페이지 입니다.</div>} />
       </Routes>
     </div>
   );
 }
+
+const About = () => {
+  return (
+    <div>
+      <h4>
+        <Outlet></Outlet>
+        입니다
+      </h4>
+    </div>
+  );
+};
 
 export default App;
