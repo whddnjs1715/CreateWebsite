@@ -71,6 +71,10 @@ function App() {
           <Route path="member" element={<div>member 페이지</div>} />
           <Route path="location" element={<div>location 페이지</div>} />
         </Route>
+        <Route path="/event" element={<Event />}>
+          <Route path="one" element={<div>첫 주문시 양말 서비스</div>} />
+          <Route path="two" element={<div>생일 기념 쿠폰 받기</div>} />
+        </Route>
         <Route path="*" element={<div>없는 페이지 입니다.</div>} />
       </Routes>
     </div>
@@ -83,6 +87,17 @@ const About = () => {
       <h4>
         <Outlet></Outlet>
         입니다
+      </h4>
+    </div>
+  );
+};
+
+const Event = () => {
+  return (
+    <div>
+      <h4>
+        오늘의 이벤트
+        <Outlet></Outlet>
       </h4>
     </div>
   );
