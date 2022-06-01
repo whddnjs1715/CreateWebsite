@@ -7,6 +7,7 @@ import Detail from './routes/Detail';
 
 function App() {
   const [shoes] = useState(data);
+  const navigate = useNavigate();
 
   const Table = (props) => {
     return (
@@ -30,15 +31,27 @@ function App() {
     <div className="App">
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">ShoesShop</Navbar.Brand>
+          <Navbar.Brand href="/">ShoesShop</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Cart</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate('/');
+              }}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate('/detail');
+              }}
+            >
+              Detail
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-      <Link to="/">홈</Link>
-      <Link to="/detail">상세페이지</Link>
+      {/* <Link to="/">홈</Link>
+      <Link to="/detail">상세페이지</Link> */}
       <Routes>
         <Route
           path="/"
