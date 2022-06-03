@@ -66,7 +66,8 @@ function App() {
             </>
           }
         />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail" element={<Detail shoes={shoes} />} />
+        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
         <Route path="/about" element={<About />}>
           <Route path="member" element={<div>member 페이지</div>} />
           <Route path="location" element={<div>location 페이지</div>} />
