@@ -5,7 +5,7 @@ import data from './data';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/Detail';
 
-function App() {
+const App = () => {
   const [shoes] = useState(data);
   const navigate = useNavigate();
 
@@ -80,7 +80,7 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 const About = () => {
   return (
