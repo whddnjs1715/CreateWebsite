@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Detail = (props) => {
   const { id } = useParams();
+  const [appear, setAppear] = useState(true);
   useEffect(() => {
     setTimeout(() => {}, 1000);
   });
