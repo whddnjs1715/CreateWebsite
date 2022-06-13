@@ -5,10 +5,17 @@ import styled from 'styled-components';
 const Detail = (props) => {
   const { id } = useParams();
   const [appear, setAppear] = useState(true);
+  const [inputValue, setInputValue] = useState('');
   useEffect(() => {
     const timer = setTimeout(() => {
       setAppear(false);
-    }, 5000);
+      var pattern = /[^(가-힣)]/;
+      if (pattern.test(document.querySelector('div > input').value)) {
+        alert('한글만 입력해 주세요');
+      }
+      document.querySelector('div > input').value = '';
+      document.querySelector('div > input').focus();
+    }, 1000);
     return () => {
       // useEffect 동작 전에 실행되는 코드 return () => {}
       // clean up function은 mount될 시에는 실행안되고 unmount될 시에는 실행된다.
@@ -32,6 +39,12 @@ const Detail = (props) => {
               width="100%"
             />
           </div>
+          <input
+            onChange={(e) => {
+              setInputValue(e.target.value);
+              console.log(inputValue);
+            }}
+          ></input>
           <div className="col-md-6">
             <h4 className="pt-5">{props.shoes[id].title}</h4>
             <p>{props.shoes[id].content}</p>
