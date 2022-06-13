@@ -6,10 +6,18 @@ const Detail = (props) => {
   const { id } = useParams();
   const [appear, setAppear] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setAppear(false);
     }, 5000);
-  });
+    return () => {
+      // useEffect 동작 전에 실행되는 코드 return () => {}
+      // clean up function은 mount될 시에는 실행안되고 unmount될 시에는 실행된다.
+      // clearTimeout 타이머 제거해주는 함수
+      clearTimeout(timer);
+    };
+  }, []);
+  // [](Dependency) : useEffect 실행조건을 넣을 수 있는 곳 []안에 state가 있으면 안에있는 state가 변할때만 실행된다. mount시 count라는 state가 변할 때 실행된다.
+  // 컴포넌트가 mount될 시 1회만 실행하고 싶으면 []로 나두면 된다.
   // useEffect 쓰는 이유 : useEffect 안에 있는 코드는 html 렌더링 후에 동작합니다.
   // useEffect 안에 적는 코드들은 1.어려운 연산작업 2.서버에서 데이터 가져오는 작업 3.타이머 장착하는것
   return (
