@@ -22,7 +22,7 @@ const Detail = (props) => {
       // clearTimeout 타이머 제거해주는 함수
       clearTimeout(timer);
     };
-  }, []);
+  }, [inputValue]);
   // [](Dependency) : useEffect 실행조건을 넣을 수 있는 곳 []안에 state가 있으면 안에있는 state가 변할때만 실행된다. mount시 count라는 state가 변할 때 실행된다.
   // 컴포넌트가 mount될 시 1회만 실행하고 싶으면 []로 나두면 된다.
   // useEffect 쓰는 이유 : useEffect 안에 있는 코드는 html 렌더링 후에 동작합니다.
