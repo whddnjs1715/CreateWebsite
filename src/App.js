@@ -4,6 +4,7 @@ import { Button, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import data from './data';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import Detail from './routes/Detail';
+import axios from 'axios';
 
 const App = () => {
   const [shoes] = useState(data);
@@ -29,6 +30,20 @@ const App = () => {
             </div>
           );
         })}
+        <button
+          onClick={() => {
+            axios
+              .get('https://codingapple1.github.i/')
+              .then((data) => {
+                console.log(data.data);
+              })
+              .catch(() => {
+                console.log('fail!!!!!!!');
+              });
+          }}
+        >
+          버튼
+        </button>
       </>
     );
   };
