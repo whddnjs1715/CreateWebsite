@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import apiRequest from '../api/index';
 
 const Table = (props) => {
   const navigate = useNavigate();
@@ -8,11 +9,13 @@ const Table = (props) => {
     margin-left: 500px;
     width: 10%;
   `;
+  console.log();
   return (
     <>
       {props.shoes.map(function (a, i) {
         return (
           <div
+            key={i}
             className="col-md-4"
             onClick={() => {
               navigate('/detail/' + i);
@@ -28,6 +31,7 @@ const Table = (props) => {
         );
       })}
       <Btn
+        key="tableBtn"
         onClick={() => {
           axios
             .get('https://codingapple1.github.io/shop/data2.json')
