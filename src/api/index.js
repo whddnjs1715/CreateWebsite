@@ -1,15 +1,12 @@
 import axios from 'axios';
 
-const baseURL = 'https://codingapple1.github.io/shop/data2.json';
-
-const baseInstance = axios.create({
-  baseURL,
-});
-
-const apiRequest = {
-  get: (url, request) => baseInstance.get(url, request),
-  delete: (url, request) => baseInstance.delete(url, request),
-  post: (url, data, config) => baseInstance.post(url, data, config),
+export const apiRequest = () => {
+  axios
+    .get('https://codingapple1.github.io/shop/data2.json')
+    .then((data) => {
+      console.log(data.data);
+    })
+    .catch(() => {
+      console.log('fail2!!!!!!!');
+    });
 };
-
-export default apiRequest;

@@ -1,15 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
-import apiRequest from '../api/index';
+import { apiRequest } from '../api/index';
 
 const Table = (props) => {
   const navigate = useNavigate();
-  const Btn = styled.button`
-    margin-left: 500px;
-    width: 10%;
-  `;
-  console.log();
+  const apiData = () => {
+    apiRequest();
+  };
   return (
     <>
       {props.shoes.map(function (a, i) {
@@ -33,14 +31,7 @@ const Table = (props) => {
       <Btn
         key="tableBtn"
         onClick={() => {
-          axios
-            .get('https://codingapple1.github.io/shop/data2.json')
-            .then((data) => {
-              console.log(data.data);
-            })
-            .catch(() => {
-              console.log('fail!!!!!!!');
-            });
+          apiData();
         }}
       >
         버튼
@@ -48,5 +39,10 @@ const Table = (props) => {
     </>
   );
 };
+
+const Btn = styled.button`
+  margin-left: 500px;
+  width: 10%;
+`;
 
 export default Table;
