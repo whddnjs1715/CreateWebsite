@@ -1,12 +1,17 @@
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import styled from 'styled-components';
+import { useState } from 'react';
 import { apiRequest } from '../api/index';
+import styled from 'styled-components';
 
 const Table = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  //const [getData, setGetData] = useState();
   const apiData = () => {
     apiRequest();
+    {
+      !isLoading ? setIsLoading(true) : setIsLoading(false);
+    }
   };
   return (
     <>
@@ -28,21 +33,34 @@ const Table = (props) => {
           </div>
         );
       })}
-      <Btn
-        key="tableBtn"
-        onClick={() => {
-          apiData();
-        }}
-      >
-        버튼
-      </Btn>
+      {!isLoading ? (
+        <Btn
+          key="tableBtn"
+          onClick={() => {
+            apiData();
+          }}
+        >
+          더보기
+        </Btn>
+      ) : (
+        <>
+          <Btn
+            key="tableBtn"
+            onClick={() => {
+              apiData();
+            }}
+          >
+            취소
+          </Btn>
+        </>
+      )}
     </>
   );
 };
 
 const Btn = styled.button`
   margin-left: 500px;
-  width: 10%;
+  width: 15%;
 `;
 
 export default Table;
