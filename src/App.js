@@ -7,7 +7,7 @@ import Detail from './routes/Detail';
 import Table from './components/Table';
 
 const App = () => {
-  const [shoes] = useState(data);
+  const [shoes, setShoes] = useState(data);
   const navigate = useNavigate();
 
   return (

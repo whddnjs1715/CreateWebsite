@@ -2,20 +2,30 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { apiRequest } from '../api/index';
 import styled from 'styled-components';
+import data from '../data';
+import axios from 'axios';
 
 const Table = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  //const [getData, setGetData] = useState();
+  const [shoes, setShoes] = useState(data);
   const apiData = () => {
-    apiRequest();
+    axios
+      .get('https://codingapple1.github.io/shop/data2.json')
+      .then((response) => {
+        let copy = [...shoes, ...response.data];
+        setShoes(copy);
+      })
+      .catch(() => {
+        console.log('fail2!!!!!!!');
+      });
     {
       !isLoading ? setIsLoading(true) : setIsLoading(false);
     }
   };
   return (
     <>
-      {props.shoes.map(function (a, i) {
+      {shoes.map(function (a, i) {
         return (
           <div
             key={i}
@@ -28,8 +38,8 @@ const Table = (props) => {
               src={'https://codingapple1.github.io/shop/shoes' + (i + 1) + '.jpg'}
               width="80%"
             ></img>
-            <h4>{props.shoes[i].title}</h4>
-            <p>{props.shoes[i].content}</p>
+            <h4>{shoes[i].title}</h4>
+            <p>{shoes[i].content}</p>
           </div>
         );
       })}
@@ -44,12 +54,7 @@ const Table = (props) => {
         </Btn>
       ) : (
         <>
-          <Btn
-            key="tableBtn"
-            onClick={() => {
-              apiData();
-            }}
-          >
+          <Btn key="tableBtn" onClick={() => {}}>
             취소
           </Btn>
         </>
