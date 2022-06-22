@@ -9,18 +9,21 @@ const Table = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [shoes, setShoes] = useState(data);
+  const [num, setNum] = useState(2);
   const apiData = () => {
-    axios
-      .get('https://codingapple1.github.io/shop/data2.json')
-      .then((response) => {
-        let copy = [...shoes, ...response.data];
-        setShoes(copy);
-      })
-      .catch(() => {
-        console.log('fail2!!!!!!!');
-      });
     {
-      !isLoading ? setIsLoading(true) : setIsLoading(false);
+      num < 4
+        ? axios
+            .get('https://codingapple1.github.io/shop/data' + num + '.json')
+            .then((response) => {
+              let copy = [...shoes, ...response.data];
+              setShoes(copy);
+              setNum(num + 1);
+            })
+            .catch(() => {
+              console.log('fail2!!!!!!!');
+            })
+        : setIsLoading(true);
     }
   };
   return (
