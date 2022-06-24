@@ -9,7 +9,6 @@ import Table from './components/Table';
 const App = () => {
   const [shoes, setShoes] = useState(data);
   const navigate = useNavigate();
-
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
