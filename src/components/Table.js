@@ -11,27 +11,20 @@ const Table = (props) => {
   const [shoes, setShoes] = useState(data);
   const [num, setNum] = useState(2);
   const apiData = () => {
-    apiRequest()
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch(() => {
-        console.log('fail2!!!!!!!');
-      });
-    // {
-    //   num < 4
-    //     ? axios
-    //         .get('https://codingapple1.github.io/shop/data' + num + '.json')
-    //         .then((response) => {
-    //           let copy = [...shoes, ...response.data];
-    //           setShoes(copy);
-    //           setNum(num + 1);
-    //         })
-    //         .catch(() => {
-    //           console.log('fail2!!!!!!!');
-    //         })
-    //     : setIsLoading(true);
-    // }
+    {
+      num < 4
+        ? apiRequest()
+            .then((response) => {
+              let copy = [...shoes, ...response.data];
+              console.log(response.data);
+              setShoes(copy);
+              setNum(num + 1);
+            })
+            .catch(() => {
+              console.log('fail2!!!!!!!');
+            })
+        : setIsLoading(true);
+    }
   };
   return (
     <>
