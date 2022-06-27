@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { apiRequest } from '../api/index';
 import styled from 'styled-components';
 import data from '../data';
-import axios from 'axios';
 
 const Table = (props) => {
   const [isLoading, setIsLoading] = useState(false);
