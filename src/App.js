@@ -5,10 +5,30 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import data from './data';
 import Detail from './routes/Detail';
 import Table from './components/Table';
+import styled from 'styled-components';
+import { apiRequest } from './api/index';
 
 const App = () => {
   const [shoes, setShoes] = useState(data);
+  const [isLoading, setIsLoading] = useState(false);
+  const [num, setNum] = useState(2);
   const navigate = useNavigate();
+  const apiData = () => {
+    {
+      num < 4
+        ? apiRequest()
+            .then((response) => {
+              let copy = [...shoes, ...response.data];
+              console.log(response.data);
+              setShoes(copy);
+              setNum(num + 1);
+            })
+            .catch(() => {
+              console.log('fail2!!!!!!!');
+            })
+        : setIsLoading(true);
+    }
+  };
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
@@ -43,6 +63,22 @@ const App = () => {
               <div className="container">
                 <div className="row">
                   <Table shoes={shoes} />
+                  {!isLoading ? (
+                    <Btn
+                      key="tableBtn"
+                      onClick={() => {
+                        apiData();
+                      }}
+                    >
+                      더보기
+                    </Btn>
+                  ) : (
+                    <>
+                      <Btn key="tableBtn" onClick={() => {}}>
+                        취소
+                      </Btn>
+                    </>
+                  )}
                 </div>
               </div>
             </>
@@ -85,5 +121,10 @@ const Event = () => {
     </div>
   );
 };
+
+const Btn = styled.button`
+  margin-left: 500px;
+  width: 15%;
+`;
 
 export default App;
