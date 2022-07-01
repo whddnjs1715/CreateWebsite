@@ -2,17 +2,14 @@
 
 <br>
 
-## ✨ 설치 및 시작방법
+## ✨ 프로젝트 실행 방법
 
 ```bash
-# install dependencies
- $ yarn install
+# 설치방법
+ $ yarn install or $ npm install
 
-# serve with hot reload at localhost:3000
- $ yarn start
+# 실행방법
+ $ yarn start or $ npm start
 ```
-
-origin https://github.com/whddnjs1715/CreateWebSite.git (fetch)
-origin https://github.com/whddnjs1715/CreateWebSite.git (push)
 
 <br>
