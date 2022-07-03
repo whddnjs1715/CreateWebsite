@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const Detail = (props) => {
@@ -15,7 +16,7 @@ const Detail = (props) => {
       }
       document.querySelector('div > input').value = '';
       document.querySelector('div > input').focus();
-    }, 1000);
+    }, 100);
     return () => {
       clearTimeout(timer);
     };
@@ -49,6 +50,21 @@ const Detail = (props) => {
       ) : (
         <div></div>
       )}
+
+      <Nav variant="tabs" defaultActiveKey="link0">
+        <Nav.Item>
+          <Nav.Link eventKey="link0">버튼0</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link1">버튼1</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link2">버튼2</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <div>내용0</div>
+      <div>내용1</div>
+      <div>내용2</div>
     </div>
   );
 };
