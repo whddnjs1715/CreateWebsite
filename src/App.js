@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import data from './data';
@@ -28,7 +28,10 @@ const App = () => {
             })
         : setIsLoading(true);
     }
+    // ajax 요청을 동시에 여러개 할때 (두개 다 성공했을 시 .then 수행)
+    // Promise.all([axios.get('/url1'), axios.get('/url2')]).then(()=>{})
   };
+  useEffect(() => {}, [shoes]);
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
