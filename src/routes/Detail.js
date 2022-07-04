@@ -26,7 +26,7 @@ const Detail = (props) => {
     <div className="container">
       {appear == true ? <div className="alert alert-warning">2초이내 구매시 할인</div> : <></>}
 
-      {id < 3 ? (
+      {id < 7 ? (
         <div className="row">
           <div className="col-md-6">
             <img
@@ -34,18 +34,18 @@ const Detail = (props) => {
               width="100%"
             />
           </div>
-          <input
-            onChange={(e) => {
-              setInputValue(e.target.value);
-              console.log(inputValue);
-            }}
-          ></input>
           <div className="col-md-6">
             <h4 className="pt-5">{props.shoes[id].title}</h4>
             <p>{props.shoes[id].content}</p>
             <p>{props.shoes[id].price}</p>
             <button className="btn btn-danger">주문하기</button>
           </div>
+          <input
+            onChange={(e) => {
+              setInputValue(e.target.value);
+              console.log(inputValue);
+            }}
+          ></input>
         </div>
       ) : (
         <div></div>
