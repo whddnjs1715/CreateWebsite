@@ -7,6 +7,7 @@ const Detail = (props) => {
   const { id } = useParams();
   const [appear, setAppear] = useState(true);
   const [inputValue, setInputValue] = useState('');
+  const [tab, setTab] = useState(0);
   useEffect(() => {
     const timer = setTimeout(() => {
       setAppear(false);
@@ -53,20 +54,44 @@ const Detail = (props) => {
 
       <Nav variant="tabs" defaultActiveKey="link0">
         <Nav.Item>
-          <Nav.Link eventKey="link0">버튼0</Nav.Link>
+          <Nav.Link
+            eventKey="link0"
+            onClick={() => {
+              setTab(0);
+            }}
+          >
+            버튼0
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link1">버튼1</Nav.Link>
+          <Nav.Link
+            eventKey="link1"
+            onClick={() => {
+              setTab(1);
+            }}
+          >
+            버튼1
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link2">버튼2</Nav.Link>
+          <Nav.Link
+            eventKey="link2"
+            onClick={() => {
+              setTab(2);
+            }}
+          >
+            버튼2
+          </Nav.Link>
         </Nav.Item>
       </Nav>
-      <div>내용0</div>
-      <div>내용1</div>
-      <div>내용2</div>
+      <TabContent tab={tab} />
     </div>
   );
+};
+
+const TabContent = ({ tab }) => {
+  const arr = [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>];
+  return arr[tab];
 };
 
 export default Detail;
