@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import styled from 'styled-components';
+import '../App.css';
 
 const Detail = (props) => {
   const { id } = useParams();
@@ -91,7 +92,17 @@ const Detail = (props) => {
 
 const TabContent = ({ tab }) => {
   const arr = [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>];
-  return arr[tab];
+  const [fade, setFade] = useState('');
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setFade('end');
+    }, 100);
+    return () => {
+      clearTimeout(timeout);
+      setFade('');
+    };
+  }, [tab]);
+  return <div className={'start ' + fade}>{arr[tab]}</div>;
 };
 
 export default Detail;
