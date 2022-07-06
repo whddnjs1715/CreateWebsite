@@ -1,9 +1,12 @@
 .start {
-  opacity: 0;
+  transform: scale(0);
+  /* opacity: 0; */
 }
 .end {
-  opacity: 1;
-  transition: opacity 1s;
+  transform: scale(1);
+  /* opacity: 1; */
+  /* transition: opacity 1s; */
+  transition: all 0.5s;
 }
 
 .App {
