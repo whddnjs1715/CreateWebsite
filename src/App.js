@@ -12,6 +12,7 @@ const App = () => {
   const [shoes, setShoes] = useState(data);
   const [isLoading, setIsLoading] = useState(false);
   const [num, setNum] = useState(2);
+  const [재고] = useState([10, 11, 12]);
   const navigate = useNavigate();
   const apiData = () => {
     {
