@@ -81,7 +81,7 @@ const App = () => {
                   ) : (
                     <>
                       <Btn key="tableBtn" onClick={() => {}}>
-                        취소
+                        취소!
                       </Btn>
                     </>
                   )}
