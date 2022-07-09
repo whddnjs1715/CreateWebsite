@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import data from './data';
@@ -7,6 +7,8 @@ import Detail from './routes/Detail';
 import Table from './components/Table';
 import styled from 'styled-components';
 import { apiRequest } from './api/index';
+
+let Context1 = createContext();
 
 const App = () => {
   const [shoes, setShoes] = useState(data);
@@ -89,7 +91,14 @@ const App = () => {
           }
         />
         <Route path="/detail" element={<Detail shoes={shoes} />} />
-        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+        <Route
+          path="/detail/:id"
+          element={
+            <Context1.Provider value={{ 재고, shoes }}>
+              <Detail shoes={shoes} />
+            </Context1.Provider>
+          }
+        />
         <Route path="/about" element={<About />}>
           <Route path="member" element={<div>member 페이지</div>} />
           <Route path="location" element={<div>location 페이지</div>} />
