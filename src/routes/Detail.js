@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
-import styled from 'styled-components';
+import { Context1 } from '../App';
 import '../App.css';
 
 const Detail = (props) => {
+  let { 재고 } = useContext(Context1);
   const { id } = useParams();
   const [appear, setAppear] = useState(true);
   const [inputValue, setInputValue] = useState('');
@@ -91,6 +92,7 @@ const Detail = (props) => {
 };
 
 const TabContent = ({ tab }) => {
+  let { 재고 } = useContext(Context1);
   const arr = [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>];
   const [fade, setFade] = useState('');
   useEffect(() => {

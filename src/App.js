@@ -8,7 +8,7 @@ import Table from './components/Table';
 import styled from 'styled-components';
 import { apiRequest } from './api/index';
 
-let Context1 = createContext();
+export let Context1 = createContext();
 
 const App = () => {
   const [shoes, setShoes] = useState(data);
@@ -81,7 +81,7 @@ const App = () => {
                   ) : (
                     <>
                       <Btn key="tableBtn" onClick={() => {}}>
-                        취소
+                        취소!
                       </Btn>
                     </>
                   )}
