@@ -4,6 +4,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import data from './data';
 import Detail from './routes/Detail';
+import Cart from './routes/Cart';
 import Table from './components/Table';
 import styled from 'styled-components';
 import { apiRequest } from './api/index';
@@ -54,6 +55,13 @@ const App = () => {
               }}
             >
               Detail
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate('/cart');
+              }}
+            >
+              Cart
             </Nav.Link>
           </Nav>
         </Container>
@@ -107,6 +115,7 @@ const App = () => {
           <Route path="one" element={<div>첫 주문시 양말 서비스</div>} />
           <Route path="two" element={<div>생일 기념 쿠폰 받기</div>} />
         </Route>
+        <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<div>없는 페이지 입니다.</div>} />
       </Routes>
     </div>
