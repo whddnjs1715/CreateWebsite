@@ -2,11 +2,16 @@ import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 const Cart = () => {
-  const user = useSelector((state) => {
+  const a = useSelector((state) => {
     return state;
   });
-  console.log(user);
-  console.log(user.user);
+  // 축약버전도 가능
+  // const a = useSelector((state) => {
+  //  state.stock;
+  // });
+  console.log(a.user);
+  console.log(a.stock);
+
   return (
     <div>
       <Table>
