@@ -2,15 +2,14 @@ import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 const Cart = () => {
-  const a = useSelector((state) => {
+  const stock = useSelector((state) => {
     return state;
   });
   // 축약버전도 가능
   // const a = useSelector((state) => {
   //  state.stock;
   // });
-  console.log(a.user);
-  console.log(a.stock);
+  console.log(stock.stock[0].name);
 
   return (
     <div>
@@ -24,12 +23,16 @@ const Cart = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>안녕</td>
-            <td>안녕</td>
-            <td>안녕</td>
-          </tr>
+          {stock.stock.map(function (a, i) {
+            return (
+              <tr>
+                <td>{stock.stock[i].id}</td>
+                <td>{stock.stock[i].name}</td>
+                <td>{stock.stock[i].count}</td>
+                <td>변경</td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
     </div>
