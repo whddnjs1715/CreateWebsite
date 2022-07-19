@@ -1,10 +1,12 @@
 import { Table } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeName } from '../service/store.js';
 
 const Cart = () => {
   const cart = useSelector((state) => {
     return state;
   });
+  const dispatch = useDispatch();
   // 축약버전도 가능
   // const a = useSelector((state) => {
   //  state.stock;
@@ -28,7 +30,15 @@ const Cart = () => {
                 <td>{cart.cart[i].id}</td>
                 <td>{cart.cart[i].name}</td>
                 <td>{cart.cart[i].count}</td>
-                <td>변경</td>
+                <td>
+                  <button
+                    onClick={() => {
+                      dispatch(changeName());
+                    }}
+                  >
+                    변경
+                  </button>
+                </td>
               </tr>
             );
           })}
