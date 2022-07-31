@@ -33,10 +33,10 @@ const Cart = () => {
                 <td>
                   <button
                     onClick={() => {
-                      dispatch(increase(i));
+                      dispatch(increase(cart.cart[i].id));
                     }}
                   >
-                    변경
+                    추가
                   </button>
                 </td>
               </tr>

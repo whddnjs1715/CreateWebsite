@@ -13,10 +13,14 @@ const cart = createSlice({
   ],
   reducers: {
     increase(state, action) {
-      state[action.payload].count++;
+      const num = state.findIndex((a) => {
+        return a.id == action.payload;
+      });
+      state[num].count++;
+      //state[action.payload].count++;
     },
   },
 });
-export let { changeName, increase } = cart.actions;
+export let { increase } = cart.actions;
 
 export default cart;
