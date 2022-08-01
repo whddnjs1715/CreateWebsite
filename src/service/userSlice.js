@@ -19,8 +19,11 @@ const cart = createSlice({
       state[num].count++;
       //state[action.payload].count++;
     },
+    addItem(state, action) {
+      state.push(action.payload);
+    },
   },
 });
-export let { increase } = cart.actions;
+export let { increase, addItem } = cart.actions;
 
 export default cart;
