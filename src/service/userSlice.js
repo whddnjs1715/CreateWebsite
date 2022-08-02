@@ -8,8 +8,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const cart = createSlice({
   name: 'cart',
   initialState: [
-    { id: 0, name: 'White and Black', count: 2 },
-    { id: 2, name: 'Grey Yordan', count: 1 },
+    { id: 7, name: 'White and Black', count: 2 },
+    { id: 8, name: 'Grey Yordan', count: 1 },
   ],
   reducers: {
     increase(state, action) {
@@ -20,10 +20,12 @@ const cart = createSlice({
       //state[action.payload].count++;
     },
     addItem(state, action) {
+      //let copy = [...state];
+
       state.push(action.payload);
     },
   },
 });
-export let { increase, addItem } = cart.actions;
+export let { increase, addItem, sameItem } = cart.actions;
 
 export default cart;

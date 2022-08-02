@@ -6,6 +6,7 @@ const Cart = () => {
   const cart = useSelector((state) => {
     return state;
   });
+
   const dispatch = useDispatch();
   // 축약버전도 가능
   // const a = useSelector((state) => {

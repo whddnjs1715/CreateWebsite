@@ -12,6 +12,8 @@ import { apiRequest } from './api/index';
 export let Context1 = createContext();
 
 const App = () => {
+  let obj = { name: 'kim' };
+  localStorage.setItem('data', JSON.stringify(obj));
   const [shoes, setShoes] = useState(data);
   const [isLoading, setIsLoading] = useState(false);
   const [num, setNum] = useState(2);
