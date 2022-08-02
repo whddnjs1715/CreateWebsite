@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 import { Context1 } from '../App';
-import { addItem } from '../service/userSlice';
+import { addItem, sameItem } from '../service/userSlice';
 import { useDispatch } from 'react-redux';
 import '../App.css';
 
