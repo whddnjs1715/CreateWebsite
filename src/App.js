@@ -12,11 +12,9 @@ import { apiRequest } from './api/index';
 export let Context1 = createContext();
 
 const App = () => {
-  let obj = { name: 'kim' };
-  localStorage.setItem('data', JSON.stringify(obj));
-  let getObj = localStorage.getItem('data');
-  console.log(JSON.parse(getObj));
-  console.log(JSON.parse(getObj).name);
+  useEffect(() => {
+    localStorage.setItem('watched', []);
+  }, []);
 
   const [shoes, setShoes] = useState(data);
   const [isLoading, setIsLoading] = useState(false);
