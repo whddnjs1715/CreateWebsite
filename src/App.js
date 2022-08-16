@@ -13,7 +13,7 @@ export let Context1 = createContext();
 
 const App = () => {
   useEffect(() => {
-    localStorage.setItem('watched', []);
+    localStorage.setItem('watched', JSON.stringify([]));
   }, []);
 
   const [shoes, setShoes] = useState(data);

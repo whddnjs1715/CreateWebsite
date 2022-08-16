@@ -13,20 +13,26 @@ const Detail = (props) => {
   const [inputValue, setInputValue] = useState('');
   const [tab, setTab] = useState(0);
   const dispatch = useDispatch();
+  const findPro = props.shoes.find((x) => x.id == id);
+  // useEffect(() => {
+
+  //   const timer = setTimeout(() => {
+  //     setAppear(false);
+  //     var pattern = /[^(가-힣)]/;
+  //     if (pattern.test(document.querySelector('div > input').value)) {
+  //       alert('한글만 입력해 주세요');
+  //     }
+  //     document.querySelector('div > input').value = '';
+  //     document.querySelector('div > input').focus();
+  //   }, 100);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [inputValue], []);
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setAppear(false);
-      var pattern = /[^(가-힣)]/;
-      if (pattern.test(document.querySelector('div > input').value)) {
-        alert('한글만 입력해 주세요');
-      }
-      document.querySelector('div > input').value = '';
-      document.querySelector('div > input').focus();
-    }, 100);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [inputValue]);
+    console.log(findPro);
+  }, []);
 
   return (
     <div className="container">
