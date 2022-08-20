@@ -14,6 +14,13 @@ const Detail = (props) => {
   const [tab, setTab] = useState(0);
   const dispatch = useDispatch();
   const findPro = props.shoes.find((x) => x.id == id);
+  useEffect(() => {
+    let getStor = JSON.parse(localStorage.getItem('watched'));
+    getStor.push(findPro.id);
+    getStor = Array.from(new Set(getStor));
+    localStorage.setItem('watched', JSON.stringify(findPro));
+  });
+
   // useEffect(() => {
 
   //   const timer = setTimeout(() => {

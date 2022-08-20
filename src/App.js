@@ -12,10 +12,6 @@ import { apiRequest } from './api/index';
 export let Context1 = createContext();
 
 const App = () => {
-  useEffect(() => {
-    localStorage.setItem('watched', JSON.stringify([]));
-  }, []);
-
   const [shoes, setShoes] = useState(data);
   const [isLoading, setIsLoading] = useState(false);
   const [num, setNum] = useState(2);
@@ -39,7 +35,13 @@ const App = () => {
     // ajax 요청을 동시에 여러개 할때 (두개 다 성공했을 시 .then 수행)
     // Promise.all([axios.get('/url1'), axios.get('/url2')]).then(()=>{})
   };
-  useEffect(() => {}, [shoes]);
+
+  useEffect(() => {
+    let getStor = JSON.parse(localStorage.getItem('watched'));
+    if (getStor === null) {
+      localStorage.setItem('watched', JSON.stringify([]));
+    }
+  }, [shoes]);
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
