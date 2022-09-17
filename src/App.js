@@ -42,6 +42,7 @@ const App = () => {
       localStorage.setItem('watched', JSON.stringify([]));
     }
   }, [shoes]);
+
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
